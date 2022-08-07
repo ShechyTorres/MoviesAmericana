@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   // Contenedor
   view2: {
     marginTop: hp('5%'),
-    marginLeft: wp('10%'),
+    marginLeft: wp('7%'),
   },
   viewTitle: {
     flexDirection: 'row',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   // Titulo
   title: {
     color: '#fff',
-    fontSize: RFValue(15),
+    fontSize: RFValue(14),
     fontWeight: 'bold',
   },
   subTitle: {

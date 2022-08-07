@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   btnDetail: {
     color: '#fff',
     width: wp('30%'),
-    fontSize: RFValue(13),
+    fontSize: RFValue(11),
     textAlign: 'center',
     padding: 10,
     textTransform: 'uppercase',

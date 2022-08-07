@@ -77,9 +77,7 @@ const Details = (props) => {
   const getLanguages = () => {
     return details.spoken_languages.map((spoken_language) => (
       <View style={styles.getView}>
-        <Text style={styles.getText}>
-          {spoken_language.english_name}, {spoken_language.name}
-        </Text>
+        <Text style={styles.getText}>{spoken_language.english_name}</Text>
       </View>
     ));
   };
@@ -97,7 +95,7 @@ const Details = (props) => {
           {loading ? (
             <ActivityIndicator size={50} color={'#fff'} />
           ) : (
-            <View style={{ paddingBottom: 20 }}>
+            <View>
               {/* Fondo Poster */}
               <View>
                 <Image
@@ -157,37 +155,37 @@ const Details = (props) => {
 
                 {/* Compañia de produccion */}
                 <View style={styles.rowOptionDetail}>
-                  <Text style={styles.optionDetailCompanies}>Production companies: </Text>
+                  <Text style={styles.optionDetailCompanies}>Studios </Text>
                   <ScrollView horizontal={true}>{getProductionCompanies()}</ScrollView>
                 </View>
 
                 {/* Genero */}
                 <View style={styles.rowOptionDetail}>
-                  <Text style={styles.optionDetail}>Genre: </Text>
+                  <Text style={styles.optionDetail}>Genre </Text>
                   <ScrollView horizontal={true}>{getGenre()}</ScrollView>
                 </View>
 
                 {/* Fecha */}
                 <View style={styles.rowOptionDetail}>
-                  <Text style={styles.optionDetail}>Release: </Text>
+                  <Text style={styles.optionDetail}>Release </Text>
                   <Text style={styles.white}>{details.release_date}</Text>
                 </View>
 
                 {/* Duración */}
                 <View style={styles.rowOptionDetail}>
-                  <Text style={styles.optionDetail}>Duration: </Text>
+                  <Text style={styles.optionDetail}>Duration </Text>
                   <Text style={styles.white}>{details.runtime} min</Text>
                 </View>
 
                 {/* Lenguaje */}
                 <View style={styles.rowOptionDetail}>
-                  <Text style={styles.optionDetailCompanies}>Languages: </Text>
+                  <Text style={styles.optionDetailCompanies}>Languages </Text>
                   <ScrollView horizontal={true}>{getLanguages()}</ScrollView>
                 </View>
 
                 {/* Pais de produccion */}
                 <View style={styles.rowOptionDetail}>
-                  <Text style={styles.optionDetailCompanies}>Production Country: </Text>
+                  <Text style={styles.optionDetailCompanies}>Production Country </Text>
                   <ScrollView horizontal={true}>{getProductionCountries()}</ScrollView>
                 </View>
 
