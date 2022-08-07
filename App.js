@@ -13,14 +13,20 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={routes.Home} options={{ headerShown: false }} />
-        <Stack.Screen
-          name="DetailsRecommended"
-          component={routes.DetailsRecommended}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="Details" component={routes.Details} options={{ headerShown: false }} />
         <Stack.Screen
           name="MoviesRecommended"
           component={routes.MoviesRecommended}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MoviesToRated"
+          component={routes.MoviesToRated}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MoviesUpcoming"
+          component={routes.MoviesUpcoming}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

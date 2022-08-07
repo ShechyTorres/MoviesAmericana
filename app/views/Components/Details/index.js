@@ -19,7 +19,7 @@ import { GET_API } from '../../../services/API';
 // Estilos importados
 import styles from './styles';
 
-const DetailsRecommended = (props) => {
+const Details = (props) => {
   const { navigation } = props;
   // Tema
   const theme = useColorScheme();
@@ -161,4 +161,4 @@ const DetailsRecommended = (props) => {
   );
 };
 
-export default DetailsRecommended;
+export default Details;

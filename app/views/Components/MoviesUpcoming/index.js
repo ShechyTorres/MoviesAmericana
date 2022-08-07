@@ -6,9 +6,9 @@ import { GET_API } from '../../../services/API';
 import { POSTER_IMG_URL } from '../../../config';
 
 // Estilos importados
-import styles from './styles';
+import styles from '../MoviesRecommended/styles';
 
-const MoviesRecommended = (props) => {
+const MoviesUpcoming = (props) => {
   // Manejo de estados con useState
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -16,7 +16,7 @@ const MoviesRecommended = (props) => {
   // Efecto similar a 'componentDidMount' obtiene los datos, una vez.
   useEffect(() => {
     const getMovies = async () => {
-      const data = await GET_API('/discover/movie');
+      const data = await GET_API('/movie/upcoming');
       setMovies(data.results);
       setLoading(false);
     };
@@ -28,7 +28,7 @@ const MoviesRecommended = (props) => {
     <View>
       <View style={styles.view2}>
         <View style={styles.viewTitle}>
-          <Text style={styles.title}>RECOMMENDED FOR YOU</Text>
+          <Text style={styles.title}>UPCOMING</Text>
           <TouchableOpacity>
             <Text style={styles.subTitle}>See All</Text>
           </TouchableOpacity>
@@ -40,6 +40,7 @@ const MoviesRecommended = (props) => {
         ) : (
           <FlatList
             horizontal
+            // inverted
             data={movies}
             keyExtractor={({ id }, index) => id}
             renderItem={(item) => PosterMovies(item, props)}
@@ -61,6 +62,7 @@ const PosterMovies = ({ item }, props) => {
         source={{ uri: `${POSTER_IMG_URL}${item.poster_path}` }}
         style={styles.poster}
         resizeMode="contain"
+        inverted={true}
       />
       <Text style={styles.titlePoster}>{item.original_title}</Text>
       <Text style={styles.titlePoster}>Votes: {item.vote_count}</Text>
@@ -68,4 +70,4 @@ const PosterMovies = ({ item }, props) => {
   );
 };
 
-export default MoviesRecommended;
+export default MoviesUpcoming;

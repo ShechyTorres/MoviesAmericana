@@ -6,6 +6,8 @@ import Icon from 'react-native-vector-icons/Feather';
 // Vistas y estilos importados
 import styles from './styles';
 import MoviesRecommended from '../Components/MoviesRecommended';
+import MoviesToRated from '../Components/MoviesToRated';
+import MoviesUpcoming from '../Components/MoviesUpcoming';
 
 const Home = (props) => {
   // Tema y colores
@@ -32,7 +34,8 @@ const Home = (props) => {
           {/* Vistas importadas como componentes */}
           <ScrollView>
             <MoviesRecommended navigation={props.navigation} />
-            <MoviesRecommended navigation={props.navigation} />
+            <MoviesToRated navigation={props.navigation} />
+            <MoviesUpcoming navigation={props.navigation} />
           </ScrollView>
         </View>
       </View>
