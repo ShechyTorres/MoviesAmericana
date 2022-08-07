@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
-  // Segundo fondo redondeado
+  // Segundo fondo borde superior redondeado
   fondo2: {
     flex: 1,
     backgroundColor: '#2C3848',

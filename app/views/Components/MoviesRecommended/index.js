@@ -16,7 +16,7 @@ const MoviesRecommended = (props) => {
   // Efecto similar a 'componentDidMount' obtiene los datos, una vez.
   useEffect(() => {
     const getMovies = async () => {
-      const data = await GET_API('/discover/movie');
+      const data = await GET_API(props.url);
       setMovies(data.results);
       setLoading(false);
     };
@@ -28,7 +28,7 @@ const MoviesRecommended = (props) => {
     <View>
       <View style={styles.view2}>
         <View style={styles.viewTitle}>
-          <Text style={styles.title}>RECOMMENDED FOR YOU</Text>
+          <Text style={styles.title}>{props.title}</Text>
           <TouchableOpacity>
             <Text style={styles.subTitle}>See All</Text>
           </TouchableOpacity>
@@ -55,7 +55,7 @@ const PosterMovies = ({ item }, props) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        props.navigation.navigate('Details', { movieId: item.id });
+        props.navigation.push('Details', { movieId: item.id });
       }}>
       <Image
         source={{ uri: `${POSTER_IMG_URL}${item.poster_path}` }}

@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     position: 'absolute',
     top: 30,
-    right: 25,
+    right: 15,
   },
 
   // Contenedor del detalle
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     fontSize: RFValue(15),
   },
 
-  // Genero de pelicula
+  // Genero de pelicula y otros detalles
   getView: {
     paddingHorizontal: 4,
     paddingVertical: 4,

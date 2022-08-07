@@ -16,7 +16,7 @@ const MoviesToRated = (props) => {
   // Efecto similar a 'componentDidMount' obtiene los datos, una vez.
   useEffect(() => {
     const getMovies = async () => {
-      const data = await GET_API('/movie/top_rated');
+      const data = await GET_API(props.url);
       setMovies(data.results);
       setLoading(false);
     };
@@ -24,11 +24,11 @@ const MoviesToRated = (props) => {
   }, []);
 
   return (
-    // Peliculas recomendadas
+    // Peliculas mas valoradas
     <View>
       <View style={styles.view2}>
         <View style={styles.viewTitle}>
-          <Text style={styles.title}>TOP RATED</Text>
+          <Text style={styles.title}>{props.title}</Text>
           <TouchableOpacity>
             <Text style={styles.subTitle}>See All</Text>
           </TouchableOpacity>
@@ -40,7 +40,6 @@ const MoviesToRated = (props) => {
         ) : (
           <FlatList
             horizontal
-            // inverted
             data={movies}
             keyExtractor={({ id }, index) => id}
             renderItem={(item) => PosterMovies(item, props)}
@@ -56,7 +55,7 @@ const PosterMovies = ({ item }, props) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        props.navigation.navigate('Details', { movieId: item.id });
+        props.navigation.push('Details', { movieId: item.id });
       }}>
       <Image
         source={{ uri: `${POSTER_IMG_URL}${item.poster_path}` }}

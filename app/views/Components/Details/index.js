@@ -16,8 +16,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { POSTER_IMG_URL } from '../../../config';
 import { GET_API } from '../../../services/API';
 
-// Estilos importados
+// Vistas y estilos importados
 import styles from './styles';
+import MoviesRecommended from '../MoviesRecommended';
 
 const Details = (props) => {
   const { navigation } = props;
@@ -48,7 +49,8 @@ const Details = (props) => {
       </View>
     ));
   };
-  // Generos de las peliculas
+
+  // Compañias de producción
   const getProductionCompanies = () => {
     return details.production_companies.map((production_companie) => (
       <View style={styles.getView}>
@@ -62,6 +64,27 @@ const Details = (props) => {
     ));
   };
 
+  // Pais de producción
+  const getProductionCountries = () => {
+    return details.production_countries.map((production_country) => (
+      <View style={styles.getView}>
+        <Text style={styles.getText}>{production_country.name},</Text>
+      </View>
+    ));
+  };
+
+  // Lenguaje
+  const getLanguages = () => {
+    return details.spoken_languages.map((spoken_language) => (
+      <View style={styles.getView}>
+        <Text style={styles.getText}>
+          {spoken_language.english_name}, {spoken_language.name}
+        </Text>
+      </View>
+    ));
+  };
+
+  // Boton atrás
   const back = () => {
     navigation.goBack();
   };
@@ -144,14 +167,36 @@ const Details = (props) => {
                   <ScrollView horizontal={true}>{getGenre()}</ScrollView>
                 </View>
 
+                {/* Fecha */}
                 <View style={styles.rowOptionDetail}>
                   <Text style={styles.optionDetail}>Release: </Text>
                   <Text style={styles.white}>{details.release_date}</Text>
                 </View>
 
-                {/* <View>
-                  <Text style={styles.overviewDetail}>{details.overview}</Text>
-                </View> */}
+                {/* Duración */}
+                <View style={styles.rowOptionDetail}>
+                  <Text style={styles.optionDetail}>Duration: </Text>
+                  <Text style={styles.white}>{details.runtime} min</Text>
+                </View>
+
+                {/* Lenguaje */}
+                <View style={styles.rowOptionDetail}>
+                  <Text style={styles.optionDetailCompanies}>Languages: </Text>
+                  <ScrollView horizontal={true}>{getLanguages()}</ScrollView>
+                </View>
+
+                {/* Pais de produccion */}
+                <View style={styles.rowOptionDetail}>
+                  <Text style={styles.optionDetailCompanies}>Production Country: </Text>
+                  <ScrollView horizontal={true}>{getProductionCountries()}</ScrollView>
+                </View>
+
+                {/* Peliculas similares */}
+                <MoviesRecommended
+                  title={'SIMILAR MOVIES'}
+                  navigation={props.navigation}
+                  url={`/movie/${props.route.params.movieId}/similar`}
+                />
               </View>
             </View>
           )}

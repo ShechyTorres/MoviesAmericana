@@ -18,6 +18,7 @@ const Home = (props) => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={theme == 'dark' ? styles.fondoDark : styles.fondo}>
         <View style={styles.view1}>
+          {/* Texto de bienvenida */}
           <Text style={styles.textHome}>Hello, what do you want to watch ?</Text>
           {/* Buscador */}
           <View style={theme == 'dark' ? styles.viewBuscadorDark : styles.viewBuscador}>
@@ -33,9 +34,21 @@ const Home = (props) => {
         <View style={theme == 'dark' ? styles.fondo2Dark : styles.fondo2}>
           {/* Vistas importadas como componentes */}
           <ScrollView>
-            <MoviesRecommended navigation={props.navigation} />
-            <MoviesToRated navigation={props.navigation} />
-            <MoviesUpcoming navigation={props.navigation} />
+            <MoviesRecommended
+              title={'RECOMMENDED FOR YOU'}
+              url={'/discover/movie'}
+              navigation={props.navigation}
+            />
+            <MoviesToRated
+              title={'TOP RATED'}
+              url={'/movie/top_rated'}
+              navigation={props.navigation}
+            />
+            <MoviesUpcoming
+              title={'UPCOMING'}
+              url={'/movie/upcoming'}
+              navigation={props.navigation}
+            />
           </ScrollView>
         </View>
       </View>
